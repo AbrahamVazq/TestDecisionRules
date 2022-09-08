@@ -97,8 +97,23 @@
                     <view key="view" contentMode="scaleToFill" id="jGi-qP-wOI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(TITULO)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QeB-kP-857">
+                                <rect key="frame" x="20" y="110" width="95" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Wt2-2C-pmj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="rUI-uP-vUy"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="QeB-kP-857" firstAttribute="leading" secondItem="rUI-uP-vUy" secondAttribute="leading" constant="20" id="JgB-tG-mxw"/>
+                            <constraint firstItem="QeB-kP-857" firstAttribute="top" secondItem="rUI-uP-vUy" secondAttribute="top" constant="22" id="SPa-Jo-F5M"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wyf-U2-sry"/>
                 </viewController>
