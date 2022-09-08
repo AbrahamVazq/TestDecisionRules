@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		54A1993C28CA822400B2937E /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A1993B28CA822400B2937E /* Extension.swift */; };
 		54FA91FB28C7BB7100503144 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FA91FA28C7BB7100503144 /* AppDelegate.swift */; };
 		54FA91FD28C7BB7100503144 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FA91FC28C7BB7100503144 /* SceneDelegate.swift */; };
 		54FA91FF28C7BB7100503144 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FA91FE28C7BB7100503144 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		54A1993B28CA822400B2937E /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		54FA91F728C7BB7100503144 /* TestDecisionRules.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestDecisionRules.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54FA91FA28C7BB7100503144 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		54FA91FC28C7BB7100503144 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +39,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		54A1993828CA81F400B2937E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				54FA920028C7BB7100503144 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		54A1993928CA820100B2937E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				54FA91FE28C7BB7100503144 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		54A1993A28CA821300B2937E /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				54A1993B28CA822400B2937E /* Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		54FA91EE28C7BB7100503144 = {
 			isa = PBXGroup;
 			children = (
@@ -56,10 +82,11 @@
 		54FA91F928C7BB7100503144 /* TestDecisionRules */ = {
 			isa = PBXGroup;
 			children = (
+				54A1993A28CA821300B2937E /* Extension */,
+				54A1993928CA820100B2937E /* Controller */,
+				54A1993828CA81F400B2937E /* View */,
 				54FA91FA28C7BB7100503144 /* AppDelegate.swift */,
 				54FA91FC28C7BB7100503144 /* SceneDelegate.swift */,
-				54FA91FE28C7BB7100503144 /* ViewController.swift */,
-				54FA920028C7BB7100503144 /* Main.storyboard */,
 				54FA920328C7BB7300503144 /* Assets.xcassets */,
 				54FA920528C7BB7300503144 /* LaunchScreen.storyboard */,
 				54FA920828C7BB7300503144 /* Info.plist */,
@@ -141,6 +168,7 @@
 				54FA91FF28C7BB7100503144 /* ViewController.swift in Sources */,
 				54FA91FB28C7BB7100503144 /* AppDelegate.swift in Sources */,
 				54FA91FD28C7BB7100503144 /* SceneDelegate.swift in Sources */,
+				54A1993C28CA822400B2937E /* Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

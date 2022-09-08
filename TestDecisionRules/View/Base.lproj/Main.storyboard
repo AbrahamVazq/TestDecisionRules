@@ -79,8 +79,8 @@
                     <connections>
                         <outlet property="btnLogin" destination="eZG-BD-JBp" id="8YO-Np-XgN"/>
                         <outlet property="imgDR" destination="coK-Hz-sBu" id="3f2-XJ-FdX"/>
-                        <outlet property="lblPass" destination="Mrw-5V-i5X" id="4Bj-cb-tOa"/>
-                        <outlet property="lblUser" destination="lDb-h4-LwC" id="Ibh-Kn-xn1"/>
+                        <outlet property="txfPass" destination="lDb-h4-LwC" id="H6O-vy-4yF"/>
+                        <outlet property="txfUser" destination="Mrw-5V-i5X" id="yYU-Ub-m7T"/>
                         <outlet property="vwContainer" destination="mcE-Iq-A6d" id="uV6-QT-dwX"/>
                     </connections>
                 </viewController>
