@@ -95,15 +95,12 @@ class ViewController: UIViewController {
     
     //MARK: - A C T I O N S
     @IBAction func goToLogin(_ sender: Any) {
-        
         if txfUser.text == "" && txfPass.text == ""  {
             self.showSimpleAlert()
         }else{
             loadServices(WithUser: txfUser.text ?? "", andSsap: txfPass.text ?? "")
         }
-        
     }
-    
 }
 
 extension ViewController: UITextFieldDelegate {
