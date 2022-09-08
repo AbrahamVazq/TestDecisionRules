@@ -6,14 +6,9 @@ import UIKit
 
 class ViewController: UIViewController {
     //MARK: - O U T L E T S
-    @IBOutlet weak var imgDR: UIImageView!{
-        didSet{self.imgDR.layer.cornerRadius = 50}
-    }
-    @IBOutlet weak var vwContainer: UIView!{
-        didSet{ self.vwContainer.layer.cornerRadius = 15 }
-    }
+    @IBOutlet weak var imgDR: UIImageView!{ didSet{self.imgDR.layer.cornerRadius = 50}}
+    @IBOutlet weak var vwContainer: UIView!{ didSet{ self.vwContainer.layer.cornerRadius = 15 }}
     @IBOutlet weak var btnLogin: UIButton!
-    
     @IBOutlet weak var txfUser: UITextField!{
         didSet{
             self.txfUser.delegate = self
@@ -27,25 +22,42 @@ class ViewController: UIViewController {
         }
     }
     
+    
+    //MARK: - V A R I A B L E S
+    var user = Usuario()
+    
     //MARK: - L I F E · C Y C L E
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     //MARK: - D E C I S I O N · R U L E S
+    
     func loadServices(WithUser usr:String, andSsap ssap:String) {
+        
+        let usuario = usr
+        let pass = ssap
+        
+        print("\n\n usuario ---> \(usuario)\n\n")
+        print("\n\n pass ---> \(pass)\n\n")
+        
+        
+        
         let url = URL(string: "https://api.decisionrules.io/rule/solve/52c13b20-796f-7893-38b3-ca1252495f79/1")!
         var request = URLRequest(url: url)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("Bearer BGyRbnPhxqk5BYsP1g3zt0qRL5kIf13ul95jPRh8FH0C3f9YbcRHzdUrQbGqa4Az", forHTTPHeaderField: "Authorization")
+        
         request.httpMethod = "POST"
-
+        
         let parameters: [String: Any] = [ "data" : [
-                        "usuario": "\(usr)",
-                        "contrasena": "\(ssap)", "esNuevoIngreso": "false"] ]
+            "usuario": "\(usuario)",
+            "contrasena": "\(pass)", "esNuevoIngreso": "false"] ]
+        
+        print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n parametros ----> \(parameters) \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
         
         let jsonData =  try? JSONSerialization.data(withJSONObject: parameters)
-        request.httpBody = jsonData
+        request.httpBody = jsonData//parameters.percentEncoded()
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, let response = response as? HTTPURLResponse, error == nil else { // check for fundamental networking error
@@ -59,20 +71,22 @@ class ViewController: UIViewController {
                 return
             }
             
+            // do whatever you want with the data, e.g.:
+            
             do {
+                // let responseObject = try JSONDecoder().decode(ResponseObject<Foo>.self, from: data)
+                //print(responseObject)
                 if let json = try JSONSerialization.jsonObject(with: data, options: [.allowFragments]) as? [String : Any] {
                     print("Info Json \(json)")
+                    
                 } else {
                     let str = String(decoding: data, as: UTF8.self)
-                    print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n str ----> \(str) \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
                     print("No hay datos - - - - \(data) - \(str)")
-                    
-                    self.showSimpleAlert(WithMessage: "No se encontraron datos")
-                    
                 }
                 
             } catch {
                 print(error) // parsing error
+                
                 if let responseString = String(data: data, encoding: .utf8) {
                     print("responseString = \(responseString)")
                 } else {
@@ -83,17 +97,16 @@ class ViewController: UIViewController {
         task.resume()
     }
     
-    
     //MARK: - F U N C T I O N S
     func showSimpleAlert(WithMessage msg: String) {
         let alert = UIAlertController(title: "DecisionRules", message: msg , preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: nil))
-        self.present(alert, animated: true) 
+        self.present(alert, animated: true)
     }
     
     
     //MARK: - V A L I D A T I O N S
-
+    
     
     //MARK: - A C T I O N S
     @IBAction func goToLogin(_ sender: Any) {
