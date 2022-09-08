@@ -67,6 +67,8 @@ class ViewController: UIViewController {
                     print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n str ----> \(str) \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
                     print("No hay datos - - - - \(data) - \(str)")
                     
+                    self.showSimpleAlert(WithMessage: "No se encontraron datos")
+                    
                 }
                 
             } catch {
@@ -83,8 +85,8 @@ class ViewController: UIViewController {
     
     
     //MARK: - F U N C T I O N S
-    func showSimpleAlert() {
-        let alert = UIAlertController(title: "DecisionRules", message: "Ingresa los datos por favor", preferredStyle: .alert)
+    func showSimpleAlert(WithMessage msg: String) {
+        let alert = UIAlertController(title: "DecisionRules", message: msg , preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: nil))
         self.present(alert, animated: true) 
     }
@@ -96,7 +98,7 @@ class ViewController: UIViewController {
     //MARK: - A C T I O N S
     @IBAction func goToLogin(_ sender: Any) {
         if txfUser.text == "" && txfPass.text == ""  {
-            self.showSimpleAlert()
+            self.showSimpleAlert(WithMessage: "Ingresa los datos por favor")
         }else{
             loadServices(WithUser: txfUser.text ?? "", andSsap: txfPass.text ?? "")
         }

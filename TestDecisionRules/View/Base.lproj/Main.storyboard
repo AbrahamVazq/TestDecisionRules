@@ -90,16 +90,16 @@
             </objects>
             <point key="canvasLocation" x="1031.8840579710145" y="118.52678571428571"/>
         </scene>
-        <!--View Controller-->
+        <!--Customed Data View Controller-->
         <scene sceneID="gLQ-rq-il6">
             <objects>
-                <viewController id="iR0-Uh-dk8" sceneMemberID="viewController">
+                <viewController id="iR0-Uh-dk8" customClass="CustomedDataViewController" customModule="TestDecisionRules" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jGi-qP-wOI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(TITULO)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QeB-kP-857">
-                                <rect key="frame" x="20" y="110" width="95" height="40"/>
+                                <rect key="frame" x="20" y="110" width="374" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Wt2-2C-pmj"/>
                                 </constraints>
@@ -113,6 +113,7 @@
                         <constraints>
                             <constraint firstItem="QeB-kP-857" firstAttribute="leading" secondItem="rUI-uP-vUy" secondAttribute="leading" constant="20" id="JgB-tG-mxw"/>
                             <constraint firstItem="QeB-kP-857" firstAttribute="top" secondItem="rUI-uP-vUy" secondAttribute="top" constant="22" id="SPa-Jo-F5M"/>
+                            <constraint firstItem="rUI-uP-vUy" firstAttribute="trailing" secondItem="QeB-kP-857" secondAttribute="trailing" constant="20" id="iWu-Gu-wRW"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wyf-U2-sry"/>
