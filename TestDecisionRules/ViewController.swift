@@ -1,9 +1,6 @@
-//
 //  ViewController.swift
 //  TestDecisionRules
-//
 //  Created by 291732 on 06/09/22.
-//
 
 import UIKit
 
@@ -31,10 +28,9 @@ class ViewController: UIViewController {
     //MARK: - L I F E · C Y C L E
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
     
-    
+
     //MARK: - D E C I S I O N · R U L E S
     func loadServices(WithUser usr:String, andSsap ssap:String) {
         let url = URL(string: "https://api.decisionrules.io/rule/solve/52c13b20-796f-7893-38b3-ca1252495f79/1")!
