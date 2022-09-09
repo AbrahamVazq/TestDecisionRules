@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8Ce-5L-EBf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8Ce-5L-EBf">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -107,18 +107,37 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Desc)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Fy-hX-oyi">
+                                <rect key="frame" x="20" y="158" width="374" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Vqk-34-pmQ">
+                                <rect key="frame" x="20" y="216.5" width="374" height="620.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="rUI-uP-vUy"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="rUI-uP-vUy" firstAttribute="bottom" secondItem="Vqk-34-pmQ" secondAttribute="bottom" constant="25" id="FUV-lG-m0S"/>
                             <constraint firstItem="QeB-kP-857" firstAttribute="leading" secondItem="rUI-uP-vUy" secondAttribute="leading" constant="20" id="JgB-tG-mxw"/>
                             <constraint firstItem="QeB-kP-857" firstAttribute="top" secondItem="rUI-uP-vUy" secondAttribute="top" constant="22" id="SPa-Jo-F5M"/>
+                            <constraint firstItem="0Fy-hX-oyi" firstAttribute="top" secondItem="QeB-kP-857" secondAttribute="bottom" constant="8" symbolic="YES" id="c1J-uT-H69"/>
+                            <constraint firstItem="rUI-uP-vUy" firstAttribute="trailing" secondItem="Vqk-34-pmQ" secondAttribute="trailing" constant="20" id="fTk-fq-8yP"/>
                             <constraint firstItem="rUI-uP-vUy" firstAttribute="trailing" secondItem="QeB-kP-857" secondAttribute="trailing" constant="20" id="iWu-Gu-wRW"/>
+                            <constraint firstItem="Vqk-34-pmQ" firstAttribute="top" secondItem="0Fy-hX-oyi" secondAttribute="bottom" constant="38" id="jzL-Nc-VZh"/>
+                            <constraint firstItem="rUI-uP-vUy" firstAttribute="trailing" secondItem="0Fy-hX-oyi" secondAttribute="trailing" constant="20" id="nBz-88-5HW"/>
+                            <constraint firstItem="0Fy-hX-oyi" firstAttribute="leading" secondItem="rUI-uP-vUy" secondAttribute="leading" constant="20" id="wLL-91-C8M"/>
+                            <constraint firstItem="Vqk-34-pmQ" firstAttribute="leading" secondItem="rUI-uP-vUy" secondAttribute="leading" constant="20" id="xuA-Mn-dao"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wyf-U2-sry"/>
                     <connections>
-                        <outlet property="lblTitle" destination="QeB-kP-857" id="Tb1-r3-rIQ"/>
+                        <outlet property="lblDescription" destination="0Fy-hX-oyi" id="Bdh-CL-dtz"/>
+                        <outlet property="lblTitle" destination="QeB-kP-857" id="aUv-Qs-6Rz"/>
+                        <outlet property="tblProducts" destination="Vqk-34-pmQ" id="yzO-Cm-bsh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mb3-1E-4Iz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
