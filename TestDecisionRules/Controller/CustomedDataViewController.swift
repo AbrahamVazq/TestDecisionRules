@@ -16,9 +16,10 @@ class CustomedDataViewController: UIViewController {
     
     @IBOutlet weak var tblProducts: UITableView! {
         didSet{
-            //self.tblProducts.delegate = self
-            //self.tblProducts.dataSource = self
+            self.tblProducts.delegate = self
+            self.tblProducts.dataSource = self
             self.tblProducts.layer.cornerRadius = 15
+            self.tblProducts.register(ProductsTableViewCell.nib, forCellReuseIdentifier: ProductsTableViewCell.identifier)
         }
     }
     
@@ -89,4 +90,17 @@ class CustomedDataViewController: UIViewController {
     }
     
 
+}
+
+extension CustomedDataViewController: UITableViewDelegate & UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: ProductsTableViewCell.identifier, for: indexPath) as? ProductsTableViewCell ?? ProductsTableViewCell()
+        return cell
+    }
+    
+    
 }
