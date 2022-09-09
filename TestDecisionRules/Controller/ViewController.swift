@@ -24,7 +24,8 @@ class ViewController: UIViewController {
     
     
     //MARK: - V A R I A B L E S
-    var user = Usuario()
+    var user: Usuario = Usuario()
+    private var arrLogin: [DRLoginResponse] = []
     
     //MARK: - L I F E · C Y C L E
     override func viewDidLoad() {
@@ -32,69 +33,18 @@ class ViewController: UIViewController {
     }
     
     //MARK: - D E C I S I O N · R U L E S
-    
     func loadServices(WithUser usr:String, andSsap ssap:String) {
-        
-        let usuario = usr
-        let pass = ssap
-        
-        print("\n\n usuario ---> \(usuario)\n\n")
-        print("\n\n pass ---> \(pass)\n\n")
-        
-        
-        
-        let url = URL(string: "https://api.decisionrules.io/rule/solve/52c13b20-796f-7893-38b3-ca1252495f79/1")!
-        var request = URLRequest(url: url)
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("Bearer BGyRbnPhxqk5BYsP1g3zt0qRL5kIf13ul95jPRh8FH0C3f9YbcRHzdUrQbGqa4Az", forHTTPHeaderField: "Authorization")
-        
-        request.httpMethod = "POST"
-        
-        let parameters: [String: Any] = [ "data" : [
-            "usuario": "\(usuario)",
-            "contrasena": "\(pass)", "esNuevoIngreso": "false"] ]
-        
-        print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n parametros ----> \(parameters) \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
-        
-        let jsonData =  try? JSONSerialization.data(withJSONObject: parameters)
-        request.httpBody = jsonData//parameters.percentEncoded()
-        
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data = data, let response = response as? HTTPURLResponse, error == nil else { // check for fundamental networking error
-                print("error - response", error ?? URLError(.badServerResponse))
-                return
-            }
-            
-            guard (200 ... 299) ~= response.statusCode else {                    // check for http errors
-                print("statusCode should be 2xx, but is \(response.statusCode)")
-                print("response = \(response)")
-                return
-            }
-            
-            // do whatever you want with the data, e.g.:
-            
-            do {
-                // let responseObject = try JSONDecoder().decode(ResponseObject<Foo>.self, from: data)
-                //print(responseObject)
-                if let json = try JSONSerialization.jsonObject(with: data, options: [.allowFragments]) as? [String : Any] {
-                    print("Info Json \(json)")
-                    
-                } else {
-                    let str = String(decoding: data, as: UTF8.self)
-                    print("No hay datos - - - - \(data) - \(str)")
+        let ws: ServiceManager = ServiceManager()
+        ws.loadServices(WithUser: usr, andSsap: ssap) { [weak self] resultado, error  in
+            if resultado != nil{
+                if let usr = resultado {
+                    self?.user = self?.setInfoIn(UserWithResponse: usr) ?? Usuario()
+                    DispatchQueue.main.async {
+                        self?.performSegue(withIdentifier: "LoginToMainPage", sender: self)
+                    }
                 }
-                
-            } catch {
-                print(error) // parsing error
-                
-                if let responseString = String(data: data, encoding: .utf8) {
-                    print("responseString = \(responseString)")
-                } else {
-                    print("unable to parse response as string")
-                }
-            }
+            }else{ self?.showSimpleAlert(WithMessage: error.debugDescription) }
         }
-        task.resume()
     }
     
     //MARK: - F U N C T I O N S
@@ -104,9 +54,14 @@ class ViewController: UIViewController {
         self.present(alert, animated: true)
     }
     
-    
-    //MARK: - V A L I D A T I O N S
-    
+    private func setInfoIn(UserWithResponse usr: DRLoginResponse) -> Usuario{
+        var usrAux = Usuario()
+        usrAux.strName = usr.nombre
+        usrAux.urlBanner = usr.urlBanner
+        usrAux.bhasPromo = usr.tienePromo
+        usrAux.color = usr.color
+        return usrAux
+    }
     
     //MARK: - A C T I O N S
     @IBAction func goToLogin(_ sender: Any) {
@@ -116,8 +71,15 @@ class ViewController: UIViewController {
             loadServices(WithUser: txfUser.text ?? "", andSsap: txfPass.text ?? "")
         }
     }
+    
+    //MARK: - N A V I G A T I O N
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? CustomedDataViewController {
+            destination.user = user }
+    }
 }
 
+// MARK: - EXT -> UI · T E X T F I E L D · D E L E G A T E
 extension ViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)

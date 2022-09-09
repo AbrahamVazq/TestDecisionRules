@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C26D99328CAED4B004796DF /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C26D99228CAED4B004796DF /* ServiceManager.swift */; };
+		2C26D99628CAF198004796DF /* DRLoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C26D99528CAF198004796DF /* DRLoginResponse.swift */; };
 		54A1993C28CA822400B2937E /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A1993B28CA822400B2937E /* Extension.swift */; };
 		54A1993E28CA8BF600B2937E /* CustomedDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A1993D28CA8BF600B2937E /* CustomedDataViewController.swift */; };
 		54A1994128CA92D100B2937E /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A1994028CA92D100B2937E /* Usuario.swift */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C26D99228CAED4B004796DF /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
+		2C26D99528CAF198004796DF /* DRLoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRLoginResponse.swift; sourceTree = "<group>"; };
 		54A1993B28CA822400B2937E /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		54A1993D28CA8BF600B2937E /* CustomedDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomedDataViewController.swift; sourceTree = "<group>"; };
 		54A1994028CA92D100B2937E /* Usuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usuario.swift; sourceTree = "<group>"; };
@@ -43,6 +47,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C26D99128CAED2B004796DF /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2C26D99228CAED4B004796DF /* ServiceManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		2C26D99428CAF171004796DF /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				2C26D99528CAF198004796DF /* DRLoginResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
 		54A1993828CA81F400B2937E /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +91,7 @@
 		54A1993F28CA92BF00B2937E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2C26D99428CAF171004796DF /* Response */,
 				54A1994028CA92D100B2937E /* Usuario.swift */,
 			);
 			path = Model;
@@ -95,6 +116,7 @@
 		54FA91F928C7BB7100503144 /* TestDecisionRules */ = {
 			isa = PBXGroup;
 			children = (
+				2C26D99128CAED2B004796DF /* Services */,
 				54A1993F28CA92BF00B2937E /* Model */,
 				54A1993A28CA821300B2937E /* Extension */,
 				54A1993928CA820100B2937E /* Controller */,
@@ -184,6 +206,8 @@
 				54A1994128CA92D100B2937E /* Usuario.swift in Sources */,
 				54FA91FD28C7BB7100503144 /* SceneDelegate.swift in Sources */,
 				54A1993C28CA822400B2937E /* Extension.swift in Sources */,
+				2C26D99328CAED4B004796DF /* ServiceManager.swift in Sources */,
+				2C26D99628CAF198004796DF /* DRLoginResponse.swift in Sources */,
 				54A1993E28CA8BF600B2937E /* CustomedDataViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
