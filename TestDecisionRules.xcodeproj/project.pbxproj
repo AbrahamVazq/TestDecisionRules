@@ -20,6 +20,7 @@
 		54FA920228C7BB7100503144 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54FA920028C7BB7100503144 /* Main.storyboard */; };
 		54FA920428C7BB7300503144 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54FA920328C7BB7300503144 /* Assets.xcassets */; };
 		54FA920728C7BB7300503144 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54FA920528C7BB7300503144 /* LaunchScreen.storyboard */; };
+		A4C7ADDB28CBC97600CA024B /* HardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C7ADDA28CBC97600CA024B /* HardData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		54FA920328C7BB7300503144 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		54FA920628C7BB7300503144 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		54FA920828C7BB7300503144 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4C7ADDA28CBC97600CA024B /* HardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 			children = (
 				2C26D99428CAF171004796DF /* Response */,
 				54A1994028CA92D100B2937E /* Usuario.swift */,
+				A4C7ADDA28CBC97600CA024B /* HardData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 				54FA91FB28C7BB7100503144 /* AppDelegate.swift in Sources */,
 				54A1994128CA92D100B2937E /* Usuario.swift in Sources */,
 				2C3CD4B828CBBB50000F3933 /* ProductsTableViewCell.swift in Sources */,
+				A4C7ADDB28CBC97600CA024B /* HardData.swift in Sources */,
 				54FA91FD28C7BB7100503144 /* SceneDelegate.swift in Sources */,
 				54A1993C28CA822400B2937E /* Extension.swift in Sources */,
 				2C26D99328CAED4B004796DF /* ServiceManager.swift in Sources */,
