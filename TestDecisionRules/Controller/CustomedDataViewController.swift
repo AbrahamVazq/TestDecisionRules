@@ -25,6 +25,7 @@ class CustomedDataViewController: UIViewController {
     
     //MARK: - V A R I A B L E S
     var user: Usuario?
+    var data: HardData = HardData()
     
     //MARK: - L Y F E · C Y C L E
     override func viewDidLoad() {
@@ -85,21 +86,44 @@ class CustomedDataViewController: UIViewController {
     
     
     //MARK: - F U N C T I O N S
-    private func setView(WithUser usr: Usuario){
-        
-    }
     
 
 }
 
 extension CustomedDataViewController: UITableViewDelegate & UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        
+        if let b = user?.bhasPromo {
+            if b {
+                return data.arrAlbumName.count
+            }else{
+                return data.arrMovies.count
+            }
+        }else{
+            return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ProductsTableViewCell.identifier, for: indexPath) as? ProductsTableViewCell ?? ProductsTableViewCell()
-        return cell
+
+        if let b = user?.bhasPromo {
+            if b {
+                let cell = tableView.dequeueReusableCell(withIdentifier: ProductsTableViewCell.identifier, for: indexPath) as? ProductsTableViewCell ?? ProductsTableViewCell()
+                cell.lblTitle.text = data.arrAlbumName[indexPath.row]
+                cell.lblDesc.text = data.arrSongs[indexPath.row]
+                cell.imgProduct.image = UIImage(named: data.arrAlbumName[indexPath.row])
+                cell.lblPrice.text = "$100.50"
+                return cell
+            }else{
+                let cell = tableView.dequeueReusableCell(withIdentifier: ProductsTableViewCell.identifier, for: indexPath) as? ProductsTableViewCell ?? ProductsTableViewCell()
+                cell.lblTitle.text = data.arrMovies[indexPath.row]
+                cell.lblDesc.text = data.descripcion[indexPath.row]
+                cell.imgProduct.image = UIImage(named: data.arrMovies[indexPath.row] )
+                cell.lblPrice.text = "$200.75"
+                return cell
+            }
+        }
+        return UITableViewCell()
     }
     
     
