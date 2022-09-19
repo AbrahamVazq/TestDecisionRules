@@ -27,7 +27,7 @@ class PromoViewController: UIViewController {
     //MARK: - D E C I S I O N · R U L E S
     func loadPromotions() {
         let ws: ServiceManager = ServiceManager()
-        ws.loadPromotions(WithDate: "7/9/22") { [weak self] resultado, error  in
+        ws.loadPromotions(WithDate: "18/9/22") { [weak self] resultado, error  in
             if resultado != nil{
                 if let usr = resultado {
                     DispatchQueue.main.async {
