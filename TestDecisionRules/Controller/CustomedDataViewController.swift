@@ -18,6 +18,17 @@ class CustomedDataViewController: UIViewController {
         super.viewDidLoad()
         print("\n\n\t usuario  ---> \(user.debugDescription) \n")
         self.setScreen(fromUser: user ?? Usuario())
+        
+        let btn = UIButton.init(frame: CGRect(x: 15, y: self.view.frame.height - 45, width: 65, height: 15))
+        btn.setTitle("Ir a promociones", for: .normal)
+        btn.backgroundColor = .red
+        btn.addTarget(self, action: #selector(continueFlujo), for: .touchUpInside)
+        self.view.addSubview(btn)
+    }
+    
+    @objc func continueFlujo() {
+        let vwPromo = PromoViewController(nibName: "PromoViewController", bundle: nil)
+        self.navigationController?.pushViewController(vwPromo, animated: true)
     }
     
     private func setScreen(fromUser usr: Usuario) {
