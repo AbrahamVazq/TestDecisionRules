@@ -88,7 +88,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1031.8840579710145" y="118.52678571428571"/>
+            <point key="canvasLocation" x="803" y="119"/>
         </scene>
         <!--Customed Data View Controller-->
         <scene sceneID="gLQ-rq-il6">
@@ -114,20 +114,41 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Vqk-34-pmQ">
-                                <rect key="frame" x="20" y="216.5" width="374" height="620.5"/>
+                                <rect key="frame" x="20" y="230.5" width="374" height="606.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wB7-VV-mWN">
+                                <rect key="frame" x="245.5" y="184.5" width="148.5" height="30"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sparkles" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="eEJ-xO-QR7">
+                                        <rect key="frame" x="0.0" y="-1" width="30" height="31"/>
+                                        <color key="tintColor" systemColor="systemYellowColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="Mky-6Y-GSx"/>
+                                            <constraint firstAttribute="height" constant="30" id="WLI-LO-Ckd"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="jdh-6R-x8Z"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cUM-cG-jaQ">
+                                        <rect key="frame" x="30" y="0.0" width="118.5" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Ver promocion"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="rUI-uP-vUy"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="wB7-VV-mWN" firstAttribute="top" secondItem="0Fy-hX-oyi" secondAttribute="bottom" constant="6" id="Bpo-n6-bP4"/>
                             <constraint firstItem="rUI-uP-vUy" firstAttribute="bottom" secondItem="Vqk-34-pmQ" secondAttribute="bottom" constant="25" id="FUV-lG-m0S"/>
                             <constraint firstItem="QeB-kP-857" firstAttribute="leading" secondItem="rUI-uP-vUy" secondAttribute="leading" constant="20" id="JgB-tG-mxw"/>
                             <constraint firstItem="QeB-kP-857" firstAttribute="top" secondItem="rUI-uP-vUy" secondAttribute="top" constant="22" id="SPa-Jo-F5M"/>
+                            <constraint firstAttribute="trailing" secondItem="wB7-VV-mWN" secondAttribute="trailing" constant="20" id="Sai-pX-Oov"/>
                             <constraint firstItem="0Fy-hX-oyi" firstAttribute="top" secondItem="QeB-kP-857" secondAttribute="bottom" constant="8" symbolic="YES" id="c1J-uT-H69"/>
                             <constraint firstItem="rUI-uP-vUy" firstAttribute="trailing" secondItem="Vqk-34-pmQ" secondAttribute="trailing" constant="20" id="fTk-fq-8yP"/>
                             <constraint firstItem="rUI-uP-vUy" firstAttribute="trailing" secondItem="QeB-kP-857" secondAttribute="trailing" constant="20" id="iWu-Gu-wRW"/>
-                            <constraint firstItem="Vqk-34-pmQ" firstAttribute="top" secondItem="0Fy-hX-oyi" secondAttribute="bottom" constant="38" id="jzL-Nc-VZh"/>
+                            <constraint firstItem="Vqk-34-pmQ" firstAttribute="top" secondItem="0Fy-hX-oyi" secondAttribute="bottom" constant="52" id="lbS-aR-VFa"/>
                             <constraint firstItem="rUI-uP-vUy" firstAttribute="trailing" secondItem="0Fy-hX-oyi" secondAttribute="trailing" constant="20" id="nBz-88-5HW"/>
                             <constraint firstItem="0Fy-hX-oyi" firstAttribute="leading" secondItem="rUI-uP-vUy" secondAttribute="leading" constant="20" id="wLL-91-C8M"/>
                             <constraint firstItem="Vqk-34-pmQ" firstAttribute="leading" secondItem="rUI-uP-vUy" secondAttribute="leading" constant="20" id="xuA-Mn-dao"/>
@@ -135,6 +156,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="wyf-U2-sry"/>
                     <connections>
+                        <outlet property="btnPromotion" destination="cUM-cG-jaQ" id="cQ5-fE-H8e"/>
+                        <outlet property="imgPromo" destination="eEJ-xO-QR7" id="s2D-cA-BrH"/>
                         <outlet property="lblDescription" destination="0Fy-hX-oyi" id="Bdh-CL-dtz"/>
                         <outlet property="lblTitle" destination="QeB-kP-857" id="aUv-Qs-6Rz"/>
                         <outlet property="tblProducts" destination="Vqk-34-pmQ" id="yzO-Cm-bsh"/>
@@ -142,7 +165,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mb3-1E-4Iz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1734.7826086956522" y="118.52678571428571"/>
+            <point key="canvasLocation" x="1481" y="119"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1CA-5V-Jp2">
@@ -165,8 +188,12 @@
     </scenes>
     <resources>
         <image name="DR" width="658" height="774"/>
+        <image name="sparkles" catalog="system" width="112" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

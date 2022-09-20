@@ -4,7 +4,7 @@
 
 import UIKit
 
-class CustomedDataViewController: UIViewController {
+final class CustomedDataViewController: UIViewController {
     //MARK: - O U T L E T S
     @IBOutlet weak var lblTitle: UILabel!{
         didSet{self.lblTitle.textColor = .white }
@@ -23,6 +23,17 @@ class CustomedDataViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var btnPromotion: UIButton!{
+        didSet{
+            self.btnPromotion.isHidden = true
+            self.btnPromotion.tintColor = .white
+            self.btnPromotion.addTarget(self, action: #selector(continueFlujo), for: .touchUpInside) }
+    }
+    
+    @IBOutlet weak var imgPromo: UIImageView!{
+        didSet { self.imgPromo.isHidden = true }
+    }
+    
     //MARK: - V A R I A B L E S
     var user: Usuario?
     var data: HardData = HardData()
@@ -31,16 +42,12 @@ class CustomedDataViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "baz x DecisionRules"
+        print("CONTENIDO ---> \(user ?? Usuario())")
         self.lblTitle.text = "Hola \(user?.strName ?? "Hola de nuevo!!!") !!!"
         self.setScreen(fromUser: user ?? Usuario())
-        
-        let btn = UIButton.init(frame: CGRect(x: 15, y: self.view.frame.height - 45, width: 65, height: 15))
-        btn.setTitle("Ir a promociones", for: .normal)
-        btn.backgroundColor = .red
-        btn.addTarget(self, action: #selector(continueFlujo), for: .touchUpInside)
-        self.view.addSubview(btn)
     }
     
+    //MARK: - F U N C T I O N S
     @objc func continueFlujo() {
         let vwPromo = PromoViewController(nibName: "PromoViewController", bundle: nil)
         self.navigationController?.pushViewController(vwPromo, animated: true)
@@ -48,12 +55,21 @@ class CustomedDataViewController: UIViewController {
     
     private func setScreen(fromUser usr: Usuario) {
         self.view.backgroundColor = returnColor(WithUser: usr)
+        self.btnPromotion.isHidden = returnHasPromo(WithUser: usr)
+        self.imgPromo.isHidden = returnHasPromo(WithUser: usr)
         var msg:String =  ""
         returnSeason(FromUser: usr) != "" ? (msg = "Ya estamos en \(returnSeason(FromUser: usr)) aprovecha las ofertas que tenemos para ti! ") : (msg = "Tenemos los mejors productos! ")
         self.lblDescription.text = msg
     }
     
-    func returnSeason(FromUser usr: Usuario) -> String{
+    private func returnHasPromo(WithUser usr: Usuario) -> Bool {
+        if let bHasPromo = usr.bhasPromo {
+            return !bHasPromo
+        }
+        return true
+    }
+    
+    private func returnSeason(FromUser usr: Usuario) -> String{
         switch usr.color{
         case "spring":
             return "Primavera"
@@ -94,11 +110,6 @@ class CustomedDataViewController: UIViewController {
             return UIColor.white
         }
     }
-    
-    
-    //MARK: - F U N C T I O N S
-    
-
 }
 
 extension CustomedDataViewController: UITableViewDelegate & UITableViewDataSource {
