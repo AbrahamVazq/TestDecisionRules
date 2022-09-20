@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0CB730FB28CB950F00D3D0AF /* PromoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB730F928CB950F00D3D0AF /* PromoViewController.swift */; };
+		0CB730FC28CB950F00D3D0AF /* PromoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CB730FA28CB950F00D3D0AF /* PromoViewController.xib */; };
+		0CB730FF28CB9BB100D3D0AF /* PromoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB730FE28CB9BB100D3D0AF /* PromoView.swift */; };
+		0CB7310128CB9BC800D3D0AF /* PromoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CB7310028CB9BC800D3D0AF /* PromoView.xib */; };
+		0CB7310328CBAD3400D3D0AF /* Promo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB7310228CBAD3400D3D0AF /* Promo.swift */; };
+		0CB7310528CBB96500D3D0AF /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB7310428CBB96500D3D0AF /* ImageLoader.swift */; };
 		2C26D99328CAED4B004796DF /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C26D99228CAED4B004796DF /* ServiceManager.swift */; };
 		2C26D99628CAF198004796DF /* DRLoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C26D99528CAF198004796DF /* DRLoginResponse.swift */; };
 		2C3CD4B828CBBB50000F3933 /* ProductsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3CD4B628CBBB50000F3933 /* ProductsTableViewCell.swift */; };
@@ -24,6 +30,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0CB730F928CB950F00D3D0AF /* PromoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoViewController.swift; sourceTree = "<group>"; };
+		0CB730FA28CB950F00D3D0AF /* PromoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PromoViewController.xib; sourceTree = "<group>"; };
+		0CB730FE28CB9BB100D3D0AF /* PromoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoView.swift; sourceTree = "<group>"; };
+		0CB7310028CB9BC800D3D0AF /* PromoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PromoView.xib; sourceTree = "<group>"; };
+		0CB7310228CBAD3400D3D0AF /* Promo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Promo.swift; sourceTree = "<group>"; };
+		0CB7310428CBB96500D3D0AF /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		2C26D99228CAED4B004796DF /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
 		2C26D99528CAF198004796DF /* DRLoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRLoginResponse.swift; sourceTree = "<group>"; };
 		2C3CD4B628CBBB50000F3933 /* ProductsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsTableViewCell.swift; sourceTree = "<group>"; };
@@ -53,6 +65,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0CB730FD28CB9B8C00D3D0AF /* Promo */ = {
+			isa = PBXGroup;
+			children = (
+				0CB730F928CB950F00D3D0AF /* PromoViewController.swift */,
+				0CB730FA28CB950F00D3D0AF /* PromoViewController.xib */,
+				0CB730FE28CB9BB100D3D0AF /* PromoView.swift */,
+				0CB7310028CB9BC800D3D0AF /* PromoView.xib */,
+				0CB7310428CBB96500D3D0AF /* ImageLoader.swift */,
+			);
+			path = Promo;
+			sourceTree = "<group>";
+		};
 		2C26D99128CAED2B004796DF /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -65,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				2C26D99528CAF198004796DF /* DRLoginResponse.swift */,
+				0CB7310228CBAD3400D3D0AF /* Promo.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -90,6 +115,7 @@
 		54A1993928CA820100B2937E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				0CB730FD28CB9B8C00D3D0AF /* Promo */,
 				54FA91FE28C7BB7100503144 /* ViewController.swift */,
 				54A1993D28CA8BF600B2937E /* CustomedDataViewController.swift */,
 			);
@@ -205,6 +231,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CB730FC28CB950F00D3D0AF /* PromoViewController.xib in Resources */,
+				0CB7310128CB9BC800D3D0AF /* PromoView.xib in Resources */,
 				54FA920728C7BB7300503144 /* LaunchScreen.storyboard in Resources */,
 				2C3CD4B928CBBB50000F3933 /* ProductsTableViewCell.xib in Resources */,
 				54FA920428C7BB7300503144 /* Assets.xcassets in Resources */,
@@ -221,14 +249,18 @@
 			files = (
 				54FA91FF28C7BB7100503144 /* ViewController.swift in Sources */,
 				54FA91FB28C7BB7100503144 /* AppDelegate.swift in Sources */,
+				0CB7310528CBB96500D3D0AF /* ImageLoader.swift in Sources */,
 				54A1994128CA92D100B2937E /* Usuario.swift in Sources */,
 				2C3CD4B828CBBB50000F3933 /* ProductsTableViewCell.swift in Sources */,
 				A4C7ADDB28CBC97600CA024B /* HardData.swift in Sources */,
 				54FA91FD28C7BB7100503144 /* SceneDelegate.swift in Sources */,
 				54A1993C28CA822400B2937E /* Extension.swift in Sources */,
 				2C26D99328CAED4B004796DF /* ServiceManager.swift in Sources */,
+				0CB730FF28CB9BB100D3D0AF /* PromoView.swift in Sources */,
+				0CB7310328CBAD3400D3D0AF /* Promo.swift in Sources */,
 				2C26D99628CAF198004796DF /* DRLoginResponse.swift in Sources */,
 				54A1993E28CA8BF600B2937E /* CustomedDataViewController.swift in Sources */,
+				0CB730FB28CB950F00D3D0AF /* PromoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
