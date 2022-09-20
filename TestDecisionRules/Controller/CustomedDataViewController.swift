@@ -42,7 +42,6 @@ final class CustomedDataViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "baz x DecisionRules"
-        print("CONTENIDO ---> \(user ?? Usuario())")
         self.lblTitle.text = "Hola \(user?.strName ?? "Hola de nuevo!!!") !!!"
         self.setScreen(fromUser: user ?? Usuario())
     }
@@ -50,6 +49,7 @@ final class CustomedDataViewController: UIViewController {
     //MARK: - F U N C T I O N S
     @objc func continueFlujo() {
         let vwPromo = PromoViewController(nibName: "PromoViewController", bundle: nil)
+        vwPromo.usuario = user
         self.navigationController?.pushViewController(vwPromo, animated: true)
     }
     
@@ -58,7 +58,9 @@ final class CustomedDataViewController: UIViewController {
         self.btnPromotion.isHidden = returnHasPromo(WithUser: usr)
         self.imgPromo.isHidden = returnHasPromo(WithUser: usr)
         var msg:String =  ""
-        returnSeason(FromUser: usr) != "" ? (msg = "Ya estamos en \(returnSeason(FromUser: usr)) aprovecha las ofertas que tenemos para ti! ") : (msg = "Tenemos los mejors productos! ")
+        returnSeason(FromUser: usr) != "" ?
+        (msg = "Ya estamos en \(returnSeason(FromUser: usr)) aprovecha las ofertas que tenemos para ti! ") :
+        (msg = "Tenemos los mejors productos! ")
         self.lblDescription.text = msg
     }
     

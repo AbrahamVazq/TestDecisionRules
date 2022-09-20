@@ -16,11 +16,12 @@ class PromoViewController: UIViewController {
     @IBOutlet weak var pgSteps: UIPageControl!
     var lstSlide: [PromoView]?
     var lstPro = [Promo]()
+    var usuario: Usuario?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.view.backgroundColor = returnColor(WithUser: usuario ?? Usuario())
+        self.title = "Promociones"
         loadPromotions()
     }
     
@@ -40,7 +41,7 @@ class PromoViewController: UIViewController {
                                     slide.lblTitle.text = item.titulo
                                     slide.lblSubtitle.text = item.subtitulo
                                     slide.imgStep.setViewImage(stringUrlToImage: item.urlImage)
-                                    slide.backgroundColor = .clear
+                                    slide.backgroundColor = self?.returnColor(WithUser: self?.usuario ?? Usuario())
                                     lst.append(slide)
                                     
                                 }
@@ -62,15 +63,47 @@ class PromoViewController: UIViewController {
         }
 
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func returnSeason(FromUser usr: Usuario) -> String{
+        switch usr.color{
+        case "spring":
+            return "Primavera"
+        case "summer":
+            return "Verano"
+        case "autumn":
+            return "Otoño"
+        case "winter":
+            return "Invierno"
+        default:
+            return ""
+        }
     }
-    */
+    
+    private func returnColor(WithUser usr: Usuario) -> UIColor {
+        switch usr.color {
+        case "pink":
+            return UIColor.systemPink
+        case "brown":
+            return UIColor.brown
+        case "green":
+            return UIColor.green
+        case "orange":
+            return UIColor.orange
+        case "blue":
+            return UIColor.blue
+        case "red":
+            return UIColor.red
+        case "spring":
+            return UIColor(red: 98/255, green: 119/255, blue: 83/255, alpha: 1)
+        case "summer":
+            return UIColor(red: 247/255, green: 187/255, blue: 18/255, alpha: 1)
+        case "autumn":
+            return UIColor(red: 186/255, green: 137/255, blue: 93/255, alpha: 1)
+        case "winter":
+            return UIColor(red: 108/255, green: 200/255, blue: 236/255, alpha: 1)
+        default:
+            return UIColor.white
+        }
+    }
 
 }
 extension PromoViewController : UIScrollViewDelegate {

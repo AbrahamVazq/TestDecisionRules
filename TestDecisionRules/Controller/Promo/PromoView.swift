@@ -11,13 +11,13 @@ class PromoView: UIView {
     
     @IBOutlet weak var lblTitle: UILabel! {
         didSet {
-            lblTitle.textColor = .black
+            lblTitle.textColor = .white
             lblTitle.textAlignment = .center
         }
     }
     @IBOutlet weak var lblSubtitle: UILabel! {
         didSet {
-            lblSubtitle.textColor = .black
+            lblSubtitle.textColor = .white
             lblSubtitle.textAlignment = .center
         }
     }
